@@ -5,7 +5,6 @@ import mongoose from "mongoose";
 dotenv.config();
 
 const app = express();
-app.use(cors());
 
 mongoose
   .connect(process.env.MONGO)
@@ -15,6 +14,10 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+  
+app.use(cors());
+app.use(express.json())
+
 
 // app.use('/',)
 
